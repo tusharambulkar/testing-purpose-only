@@ -30,6 +30,14 @@
 .acs-search input { flex: 1; min-width: 0; border: 0; outline: 0; padding: 0 18px; font-size: 15px; }
 .acs-search button { border: 0; background: var(--acs-bg); color: #fff; padding: 0 22px; font-weight: 700; }
 .acs-header__actions { margin-left: auto; display: flex; align-items: center; gap: 28px; }
+.acs-mobile-menu-button { display: none; width: 42px; height: 42px; border: 1px solid var(--acs-line); border-radius: 4px; background: #fff; align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
+.acs-mobile-menu-button span { width: 18px; height: 2px; background: var(--acs-text); }
+.acs-mobile-menu { position: fixed; z-index: 110; top: 0; left: 0; bottom: 0; width: 360px; max-width: 88vw; background: #fff; transform: translateX(-100%); transition: transform .35s ease; box-shadow: 20px 0 40px -20px rgba(0,0,0,.35); }
+.acs-mobile-menu.is-open { transform: translateX(0); }
+.acs-mobile-menu__head { height: 82px; display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--acs-line); font-size: 20px; }
+.acs-mobile-menu__head button { border: 0; background: transparent; font-size: 28px; }
+.acs-mobile-menu nav { display: flex; flex-direction: column; padding: 12px 24px; }
+.acs-mobile-menu nav a { padding: 15px 0; border-bottom: 1px solid var(--acs-line); font-weight: 700; }
 .acs-header__phone { display: flex; flex-direction: column; }
 .acs-header__phone small { font-size: 11px; text-transform: uppercase; color: var(--acs-muted); margin-bottom: 3px; }
 .acs-header__action { display: flex; align-items: center; gap: 8px; border: 0; background: transparent; color: var(--acs-text); font-size: 14px; font-weight: 600; }
@@ -92,6 +100,7 @@
 .acs-product-tabs button { border: 0; background: transparent; padding: 0 0 8px; font-size: 40px; font-weight: 800; color: #9a9790; border-bottom: 3px solid transparent; }
 .acs-product-tabs button.is-active { color: var(--acs-text); border-bottom-color: var(--acs-text); }
 .acs-product-grid { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 100px) / 6); gap: 20px; overflow-x: auto; scrollbar-width: none; }
+.acs-product-grid[hidden] { display: none; }
 .acs-product-card { min-height: 420px; background: #fff; border-radius: 4px; overflow: hidden; }
 .acs-product-card__image { height: 230px; display: flex; align-items: center; justify-content: center; padding: 24px; border-bottom: 1px solid #eeece7; }
 .acs-product-card__image img { width: 100%; height: 100%; object-fit: contain; }
@@ -118,6 +127,9 @@
 .acs-expert__inner { background: var(--acs-red); color: #fff; border-radius: 4px; padding: 56px 64px; display: grid; grid-template-columns: 1.3fr 1fr auto; gap: 64px; align-items: center; }
 .acs-memberships { background: var(--acs-paper); }
 .acs-memberships__inner { max-width: 1640px; margin: 0 auto; padding: 56px; }
+.acs-memberships__grid { display: grid; grid-template-columns: repeat(6, minmax(0, 140px)); justify-content: space-between; gap: 16px; }
+.acs-membership-card { height: 84px; padding: 10px 12px; display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 4px; }
+.acs-membership-card img { width: 100%; height: 100%; object-fit: contain; }
 .acs-footer { background: var(--acs-bg); color: #c9c6bf; }
 .acs-footer__inner { max-width: 1640px; margin: 0 auto; padding: 64px 56px 24px; }
 .acs-footer__newsletter { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 56px; border-bottom: 1px solid #33363b; }
@@ -135,11 +147,22 @@
 .acs-cart-drawer.is-open { transform: translateX(0); }
 .acs-cart-drawer__head { height: 82px; padding: 20px 28px; border-bottom: 1px solid var(--acs-line); display: flex; align-items: center; justify-content: space-between; }
 .acs-cart-drawer__body { flex: 1; padding: 28px; color: var(--acs-muted); }
+.acs-cart-drawer__footer { border-top: 1px solid var(--acs-line); padding: 20px 28px; display: flex; flex-direction: column; gap: 14px; }
+.acs-cart-drawer__footer > div { display: flex; justify-content: space-between; }
+.acs-cart-checkout { height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 4px; background: var(--acs-bg); color: #fff; font-weight: 800; }
+.acs-cart-empty { padding: 48px 0; text-align: center; }
+.acs-cart-item { display: grid; grid-template-columns: 80px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--acs-line); color: var(--acs-text); }
+.acs-cart-item img { width: 80px; height: 80px; object-fit: contain; background: var(--acs-paper); }
+.acs-cart-item > div { display: flex; flex-direction: column; gap: 5px; }
+.acs-cart-item__controls { display: flex; align-items: center; width: fit-content; margin-top: 8px; border: 1px solid var(--acs-line); border-radius: 4px; }
+.acs-cart-item__controls button { width: 34px; height: 34px; border: 0; background: transparent; }
+.acs-cart-item__controls span { min-width: 28px; text-align: center; }
 @media (max-width: 989px) {
   .acs-container, .acs-section, .acs-promos, .acs-products__inner, .acs-thermal__inner, .acs-about, .acs-brands__inner, .acs-expert, .acs-memberships__inner, .acs-footer__inner { padding-left: 24px; padding-right: 24px; }
   .acs-announcement { display: none; }
   .acs-header__phone, .acs-header__action--signin { display: none; }
   .acs-header__main { height: 76px; gap: 16px; }
+  .acs-mobile-menu-button { display: flex; }
   .acs-logo img { height: 42px; }
   .acs-nav { overflow-x: auto; }
   .acs-nav__inner { min-width: max-content; }
@@ -152,6 +175,7 @@
   .acs-product-grid { grid-auto-columns: 240px; }
   .acs-thermal__inner, .acs-about { grid-template-columns: 1fr; }
   .acs-brand-grid { grid-template-columns: repeat(3, 1fr); }
+  .acs-memberships__grid { grid-template-columns: repeat(3, minmax(0, 140px)); justify-content: center; }
   .acs-expert__inner { grid-template-columns: 1fr; }
   .acs-footer__grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -176,5 +200,6 @@
   .acs-product-tabs button { font-size: 28px; }
   .acs-spares { grid-template-columns: 1fr; }
   .acs-brand-grid { grid-template-columns: repeat(2, 1fr); }
+  .acs-memberships__grid { grid-template-columns: repeat(2, minmax(0, 140px)); }
   .acs-footer__newsletter, .acs-footer__grid { grid-template-columns: 1fr; }
 }
