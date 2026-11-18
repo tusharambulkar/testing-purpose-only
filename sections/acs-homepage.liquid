@@ -1,0 +1,255 @@
+{{ 'acs-homepage.css' | asset_url | stylesheet_tag }}
+
+<div class="acs-homepage">
+  {% if section.settings.show_announcement %}
+    <div class="acs-announcement">
+      <div class="acs-container acs-announcement__inner">
+        <div>Need help? Call <a href="tel:2815280980"><strong>(281) 528-0980</strong></a> &middot; 8am-5pm (CST)</div>
+        <div class="acs-announcement__shipping"><strong>$12.99 Flat Rate Shipping</strong><a href="/pages/shipping">See details</a></div>
+        <div class="acs-announcement__links"><a href="/account">Track Your Order</a><a href="/pages/testimonials">Testimonials</a><a href="/pages/contact">Contact Us</a></div>
+      </div>
+    </div>
+  {% endif %}
+
+  <header class="acs-header">
+    <div class="acs-container acs-header__main">
+      <a class="acs-logo" href="{{ routes.root_url }}">
+        <img src="https://store.alloycoatingsupply.com/wp-content/uploads/2022/01/ACS-Logo-with-Registered-Trademark.png" alt="{{ shop.name }}" width="250" height="50">
+      </a>
+      <form class="acs-search" action="{{ routes.search_url }}" role="search">
+        <input type="search" name="q" placeholder="Search by part number, brand or product" aria-label="Search">
+        <button type="submit">Search</button>
+      </form>
+      <div class="acs-header__actions">
+        <div class="acs-header__phone"><small>Talk to an expert</small><a href="tel:2815280980"><strong>(281) 528-0980</strong></a></div>
+        {% if shop.customer_accounts_enabled %}
+          <a class="acs-header__action acs-header__action--signin" href="{{ routes.account_login_url }}">Sign in</a>
+        {% endif %}
+        <button class="acs-header__action" type="button" data-acs-cart-open>Cart ({{ cart.item_count }})</button>
+      </div>
+    </div>
+    <nav class="acs-nav" aria-label="Main navigation">
+      <div class="acs-container acs-nav__inner">
+        {% for link in linklists.main-menu.links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% else %}
+          <a href="/collections/abrasives">Abrasives</a>
+          <a href="/collections/abrasive-power-tools">Abrasive Power Tools</a>
+          <a href="/collections/automotive">Automotive Aftermarket</a>
+          <a href="/collections/masking-materials">Masking Materials</a>
+          <a href="/collections/measuring-inspection">Measuring &amp; Inspection</a>
+          <a href="/collections/thermal-spray">Thermal Spray &amp; Spares</a>
+          <a href="/collections/brands">Brands</a>
+          <a href="/collections/all">On Sale</a>
+        {% endfor %}
+      </div>
+      </nav>
+  </header>
+
+  <section class="acs-hero" aria-label="Featured promotions">
+    <div class="acs-slide is-active">
+      <div class="acs-slide__image" style="background-image:url('https://store.alloycoatingsupply.com/wp-content/uploads/2019/02/ES-5.jpg')"></div>
+      <div class="acs-slide__shade"></div>
+      <div class="acs-container acs-slide__content">
+        <span class="acs-slide__eyebrow">We Are The Solutions Experts</span>
+        <h1>Robotic automation thermal spray booth integrations</h1>
+        <div class="acs-slide__buttons"><a class="acs-button acs-button--light" href="/pages/thermal-spray">Get more info</a><a class="acs-button acs-button--outline-light" href="tel:2815280980">Call (281) 528-0980</a></div>
+      </div>
+    </div>
+    <div class="acs-slide">
+      <div class="acs-slide__image" style="background-image:url('https://store.alloycoatingsupply.com/wp-content/uploads/2022/05/ACS.FS_1-1400x788.jpg')"></div>
+      <div class="acs-slide__shade"></div>
+      <div class="acs-container acs-slide__content">
+        <span class="acs-slide__eyebrow">ACS / FS-Maschinenbau</span>
+        <h1>Mass Flow HVOF for Feed Screws</h1>
+        <div class="acs-slide__buttons"><a class="acs-button acs-button--light" href="/pages/contact">Contact us</a><a class="acs-button acs-button--outline-light" href="tel:2815280980">Call (281) 528-0980</a></div>
+      </div>
+    </div>
+    <div class="acs-slide">
+      <div class="acs-slide__image" style="background-image:url('https://store.alloycoatingsupply.com/wp-content/uploads/2018/07/IMG_0230-1067x800.jpg')"></div>
+      <div class="acs-slide__shade"></div>
+      <div class="acs-container acs-slide__content">
+        <span class="acs-slide__eyebrow">We are the Rotor &amp; Stator Experts</span>
+        <h1>Ask us about our proven solutions!</h1>
+        <div class="acs-slide__buttons"><a class="acs-button acs-button--light" href="/pages/contact">Contact us</a><a class="acs-button acs-button--outline-light" href="tel:2815280980">Call (281) 528-0980</a></div>
+      </div>
+    </div>
+    <div class="acs-container acs-hero__controls">
+      <div class="acs-hero__dots"><button class="is-active" type="button" aria-label="Slide 1"><span></span></button><button type="button" aria-label="Slide 2"><span></span></button><button type="button" aria-label="Slide 3"><span></span></button></div>
+      <button class="acs-circle-button" type="button" data-acs-prev aria-label="Previous slide">&larr;</button>
+      <button class="acs-circle-button" type="button" data-acs-next aria-label="Next slide">&rarr;</button>
+    </div>
+  </section>
+
+  <section class="acs-trust">
+    <div class="acs-container acs-trust__grid">
+      <div class="acs-trust__item"><strong>$12.99 Flat Rate Shipping</strong><span>See details</span></div>
+      <div class="acs-trust__item"><strong>High Quality Products and Services</strong><span>ACS, 3M, Norton, Dynabrade &amp; more</span></div>
+      <div class="acs-trust__item"><strong>We Are The Solutions Experts</strong><span>Thermal spray &amp; surface preparation</span></div>
+      <div class="acs-trust__item"><strong>Authorized Dynabrade Distributor</strong><span>Browse Dynabrade</span></div>
+    </div>
+  </section>
+
+  <section class="acs-section">
+    <div class="acs-section-heading">
+      <div><span class="acs-kicker">Browse the catalog</span><h2>Shop by category</h2></div>
+      <a href="/collections">View all categories</a>
+    </div>
+    <div class="acs-categories">
+      {% for item in (1..6) %}
+        {% if item == 1 %}{% assign name = 'Abrasives' %}{% assign url = '/collections/abrasives' %}{% assign image = 'https://store.alloycoatingsupply.com/wp-content/uploads/2018/07/Diamond-Type-29-300x300.jpg' %}
+        {% elsif item == 2 %}{% assign name = 'Abrasive Power Tools' %}{% assign url = '/collections/abrasive-power-tools' %}{% assign image = 'https://store.alloycoatingsupply.com/wp-content/uploads/2022/05/55523-300x300.jpg' %}
+        {% elsif item == 3 %}{% assign name = 'Automotive Aftermarket' %}{% assign url = '/collections/automotive' %}{% assign image = '' %}
+        {% elsif item == 4 %}{% assign name = 'Masking Materials' %}{% assign url = '/collections/masking-materials' %}{% assign image = 'https://store.alloycoatingsupply.com/wp-content/uploads/2023/05/7100245428-300x300.jpg' %}
+        {% elsif item == 5 %}{% assign name = 'Measuring / Inspection' %}{% assign url = '/collections/measuring-inspection' %}{% assign image = '' %}
+        {% else %}{% assign name = 'Thermal Spray Equipment & Spares' %}{% assign url = '/collections/thermal-spray' %}{% assign image = 'https://store.alloycoatingsupply.com/wp-content/uploads/2019/02/ES-5.jpg' %}
+        {% endif %}
+        <article class="acs-category">
+          <a class="acs-category__image" href="{{ url }}">
+            {% if image != blank %}<img src="{{ image }}" alt="{{ name }}" width="300" height="300" loading="lazy">{% endif %}
+          </a>
+          <a class="acs-category__name" href="{{ url }}">{{ name }} <span>&rarr;</span></a>
+          <div class="acs-category__subs"><a href="{{ url }}">Browse products</a><a href="{{ url }}">Popular categories</a></div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="acs-promos">
+    <a class="acs-promo acs-promo--large" href="/collections/dynabrade">
+      <img src="https://store.alloycoatingsupply.com/wp-content/uploads/2018/09/Screen-Shot-2018-09-04-at-10.40.18-PM-1051x800.png" alt="Dynabrade Tools and Abrasives" width="1051" height="800" loading="lazy">
+      <div><span class="acs-kicker">Authorized Dynabrade Distributor</span><strong>Optimize your productivity with Dynabrade Abrasive Power Tools!</strong><span class="acs-button acs-button--light">Browse Now</span></div>
+    </a>
+    <a class="acs-promo acs-promo--small" href="/collections/super-abrasives">
+      <div><span class="acs-kicker">ACS Super Abrasives</span><strong>Diamond / Silicon Carbide Flap Discs</strong><span>Learn More</span></div>
+      <img src="https://store.alloycoatingsupply.com/wp-content/uploads/2019/05/HD4.5-60_clipped_rev_1.jpg" alt="ACS Flap Disc" width="300" height="300" loading="lazy">
+    </a>
+    <a class="acs-promo acs-promo--small acs-promo--small--red" href="/collections/sale">
+      <div><span>On Sale now!</span><strong>Dynabrade 56106 - 5 inch Orbital Sander Backup Pads $19.81!</strong><span>Get it now!</span></div>
+      <img src="https://store.alloycoatingsupply.com/wp-content/uploads/2021/08/56106_.jpg" alt="Dynabrade 56106" width="300" height="300" loading="lazy">
+    </a>
+  </section>
+
+  {% assign featured_collection = collections.all %}
+  <section class="acs-products">
+    <div class="acs-products__inner">
+      <div class="acs-product-tabs">
+        <div class="acs-product-tabs__buttons"><button class="is-active" type="button" data-acs-tab>Featured Products</button><button type="button" data-acs-tab>Best Sellers</button></div>
+        <a href="{{ featured_collection.url }}">Browse All</a>
+      </div>
+      <div class="acs-product-grid">
+        {% for product in featured_collection.products limit: 6 %}
+          <article class="acs-product-card">
+            <a class="acs-product-card__image" href="{{ product.url }}">
+              {% if product.featured_image %}{{ product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: product.title }}{% endif %}
+            </a>
+            <div class="acs-product-card__body">
+              <div class="acs-product-card__meta"><span>{{ product.vendor }}</span><span>#{{ product.selected_or_first_available_variant.sku }}</span></div>
+              <a class="acs-product-card__title" href="{{ product.url }}">{{ product.title }}</a>
+              <div class="acs-product-card__price">{{ product.price | money }}</div>
+              <form method="post" action="/cart/add">
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                <button class="acs-add" type="submit">Add to cart</button>
+              </form>
+            </div>
+          </article>
+        {% else %}
+          {% for item in (1..6) %}
+            <article class="acs-product-card"><div class="acs-product-card__image"></div><div class="acs-product-card__body"><div class="acs-product-card__title">Featured product</div><div class="acs-product-card__price">$0.00</div></div></article>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="acs-thermal">
+    <div class="acs-thermal__inner">
+      <div><span class="acs-kicker">Thermal Spray Equipment &amp; Spares</span><h2>Spares and consumables for the guns you already run.</h2><div class="acs-thermal__image"><img src="https://store.alloycoatingsupply.com/wp-content/uploads/2018/07/IMG_0230-1067x800.jpg" alt="Thermal spray rotor" width="1067" height="800" loading="lazy"></div></div>
+      <div>
+        <div class="acs-spares">
+          <a href="/collections/thermal-spray"><span>HVOF 5000 Gun Spares</span><span>&rarr;</span></a>
+          <a href="/collections/thermal-spray"><span>Diamond Jet Gun Spares</span><span>&rarr;</span></a>
+          <a href="/collections/thermal-spray"><span>SG-100 Gun Spares</span><span>&rarr;</span></a>
+          <a href="/collections/thermal-spray"><span>Coating Equipment</span><span>&rarr;</span></a>
+          <a href="/collections/thermal-spray"><span>Flexicords</span><span>&rarr;</span></a>
+          <a href="/collections/thermal-spray"><span>Rokide Rods</span><span>&rarr;</span></a>
+          <a href="/collections/powders"><span>Powder Feeders</span><span>&rarr;</span></a>
+          <a href="/collections/robotic-tools"><span>Robotic Power Tools</span><span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="acs-about">
+    <div class="acs-about__image"><img src="https://store.alloycoatingsupply.com/wp-content/uploads/2022/05/ACS.FS_1-1400x788.jpg" alt="ACS and FS-Maschinenbau" width="1400" height="788" loading="lazy"></div>
+    <div>
+      <span class="acs-kicker">About Us</span><h2>Customer Built. Customer Focused.</h2>
+      <p>ACS is committed to providing high quality, cost effective solutions that make customer manufacturing and assembly efforts safer and more efficient.</p>
+      <div><a class="acs-button" style="background:#17191c;color:#fff" href="/pages/about-us">About Us</a> <a class="acs-button" style="border-color:#17191c" href="/pages/testimonials">Testimonials</a></div>
+    </div>
+  </section>
+
+  <section class="acs-brands">
+    <div class="acs-brands__inner">
+      <div class="acs-section-heading"><div><span class="acs-kicker">Brands we carry</span><h2>Shop by brand</h2></div><a href="/collections/brands">All brands</a></div>
+      <div class="acs-brand-grid">
+        {% assign brands = 'ACS,Binks,3M,DeVilbiss,Dewal Industries Inc.,Dynabrade,Dynabrade Nitro Series,INSIZE,National Detroit,Norton,Saint-Gobain,Standard Abrasives' | split: ',' %}
+        {% for brand in brands %}<a href="/collections/all?filter.p.vendor={{ brand | url_encode }}">{{ brand }}</a>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="acs-expert">
+    <div class="acs-expert__inner">
+      <div><span>We Are The Solutions Experts</span><h2 style="font-size:46px;margin:12px 0 0">Can't find the part you need? Talk to our team.</h2></div>
+      <div><a href="tel:2815280980" style="display:block;font-size:36px;font-weight:800">(281) 528-0980</a><span>8am-5pm (CST), Mon.-Fri.</span></div>
+      <a class="acs-button acs-button--light" href="/pages/contact">Contact Us</a>
+    </div>
+  </section>
+
+  <section class="acs-memberships"><div class="acs-container acs-memberships__inner"><span class="acs-kicker">Memberships</span></div></section>
+
+  <footer class="acs-footer">
+    <div class="acs-footer__inner">
+      <div class="acs-footer__newsletter">
+        <div><strong>Subscribe to our newsletter</strong><span>New products, sale items and thermal spray updates.</span></div>
+        {% form 'customer', class: 'newsletter-form' %}<input type="hidden" name="contact[tags]" value="newsletter"><input type="email" name="contact[email]" placeholder="Email address" required><button type="submit">Subscribe</button>{% endform %}
+      </div>
+      <div class="acs-footer__grid">
+        <div><a class="acs-footer__logo" href="{{ routes.root_url }}"><img src="https://store.alloycoatingsupply.com/wp-content/uploads/2022/01/ACS-Logo-with-Registered-Trademark.png" alt="{{ shop.name }}" width="250" height="50"></a><p>Alloy Coating Supply is a premier independent technology and service company specializing in thermal spray coating equipment and surface preparation equipment.</p></div>
+        <div><strong>Shop</strong><a href="/collections/abrasives">Abrasives</a><a href="/collections/abrasive-power-tools">Abrasive Power Tools</a><a href="/collections/thermal-spray">Thermal Spray</a></div>
+        <div><strong>Customer Support</strong><a href="/pages/about-us">About Us</a><a href="/pages/contact">Contact Us</a><a href="/account">Track Your Order</a></div>
+        <div><strong>Policies</strong><a href="/policies/privacy-policy">Privacy Policy</a><a href="/policies/refund-policy">Return Policy</a><a href="/policies/shipping-policy">Shipping Policy</a></div>
+        <div><strong>Contact</strong><a href="tel:2815280980">(281) 528-0980</a><span>8am-5pm (CST), Mon.-Fri.</span><a href="mailto:info@alloycoatingsupply.com">info@alloycoatingsupply.com</a></div>
+      </div>
+      <div style="border-top:1px solid #33363b;padding-top:24px">Copyright {{ 'now' | date: '%Y' }} &copy; Alloy Coating Supply, LLC. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <div class="acs-cart-overlay" data-acs-cart-close></div>
+  <aside class="acs-cart-drawer" aria-label="Cart drawer">
+    <div class="acs-cart-drawer__head"><strong>Your cart ({{ cart.item_count }})</strong><button type="button" data-acs-cart-close aria-label="Close">&times;</button></div>
+    <div class="acs-cart-drawer__body">{% if cart.item_count == 0 %}No products in the cart.{% else %}{% for item in cart.items %}<div>{{ item.product.title }} &times; {{ item.quantity }}</div>{% endfor %}{% endif %}</div>
+  </aside>
+</div>
+
+<script src="{{ 'acs-homepage.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "ACS homepage",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement bar",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "ACS homepage"
+    }
+  ]
+}
+{% endschema %}

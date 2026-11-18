@@ -57,7 +57,9 @@
 
     <div class="page-wrapper">
       <div id="header-group">
-        {% sections 'header-group' %}
+        {% unless template.name == 'index' %}
+          {% sections 'header-group' %}
+        {% endunless %}
       </div>
 
       <script>
@@ -179,7 +181,9 @@
       </main>
 
       <footer>
-        {% sections 'footer-group' %}
+        {% unless template.name == 'index' %}
+          {% sections 'footer-group' %}
+        {% endunless %}
       </footer>
     </div>
 
