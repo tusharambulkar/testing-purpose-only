@@ -1,0 +1,21 @@
+{{ 'acs-homepage.css' | asset_url | stylesheet_tag }}
+<header class="acs-header acs-header-section">
+  {% if section.settings.show_announcement %}
+    <div class="acs-announcement">
+      <div class="acs-container acs-announcement__inner">
+        <div>Need help? Call <a href="tel:2815280980"><strong>(281) 528-0980</strong></a> &middot; 8am-5pm (CST)</div>
+        <div class="acs-announcement__shipping"><strong>$12.99 Flat Rate Shipping</strong><a href="/pages/shipping">See details</a></div>
+        <div class="acs-announcement__links"><a href="/account">Track Your Order</a><a href="/pages/testimonials">Testimonials</a><a href="/pages/contact">Contact Us</a></div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="acs-container acs-header__main">
+    <a class="acs-logo" href="{{ routes.root_url }}"><img src="https://store.alloycoatingsupply.com/wp-content/uploads/2022/01/ACS-Logo-with-Registered-Trademark.png" alt="{{ shop.name }}" width="250" height="50"></a>
+    <form class="acs-search" action="{{ routes.search_url }}" role="search"><input type="search" name="q" placeholder="Search by part number, brand or product" aria-label="Search"><button type="submit">Search</button></form>
+    <button class="acs-mobile-menu-button" type="button" data-acs-menu-open aria-label="Open menu"><span></span><span></span><span></span></button>
+    <div class="acs-header__actions"><div class="acs-header__phone"><small>Talk to an expert</small><a href="tel:2815280980"><strong>(281) 528-0980</strong></a></div>{% if shop.customer_accounts_enabled %}<a class="acs-header__action acs-header__action--signin" href="{{ routes.account_login_url }}">Sign in</a>{% endif %}<button class="acs-header__action" type="button" data-acs-cart-open>Cart ({{ cart.item_count }})</button></div>
+  </div>
+  <nav class="acs-nav" aria-label="Main navigation"><div class="acs-container acs-nav__inner">{% for link in linklists.main-menu.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% else %}{% for item in (1..8) %}<a href="/collections/all">{{ 'Abrasives,Abrasive Power Tools,Automotive Aftermarket,Masking Materials,Measuring & Inspection,Thermal Spray & Spares,Brands,On Sale' | split: ',' | slice: item, 1 | first }}</a>{% endfor %}{% endfor %}</div></nav>
+</header>
+<div class="acs-mobile-menu" data-acs-mobile-menu><div class="acs-mobile-menu__head"><strong>Menu</strong><button type="button" data-acs-menu-close aria-label="Close menu">&times;</button></div><nav>{% for link in linklists.main-menu.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}</nav></div>
+{% schema %}{"name":"ACS header","settings":[{"type":"checkbox","id":"show_announcement","label":"Show announcement bar","default":true}],"presets":[{"name":"ACS header"}]}{% endschema %}

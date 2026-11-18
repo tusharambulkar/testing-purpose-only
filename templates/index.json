@@ -1,13 +1,30 @@
 {
   "sections": {
-    "acs_homepage": {
-      "type": "acs-homepage",
-      "settings": {
-        "show_announcement": true
-      }
-    }
+    "acs_header": {"type": "acs-header","settings":{"show_announcement":true}},
+    "acs_hero": {"type": "acs-hero","blocks":{"slide_1":{"type":"slide","settings":{"eyebrow":"We Are The Solutions Experts","heading":"Robotic automation thermal spray booth integrations","primary_label":"Get more info","phone":"Call (281) 528-0980"}},"slide_2":{"type":"slide","settings":{"eyebrow":"ACS / FS-Maschinenbau","heading":"Mass Flow HVOF for Feed Screws","primary_label":"Contact us","phone":"Call (281) 528-0980"}},"slide_3":{"type":"slide","settings":{"eyebrow":"We are the Rotor & Stator Experts","heading":"Ask us about our proven solutions!","primary_label":"Contact us","phone":"Call (281) 528-0980"}}},"block_order":["slide_1","slide_2","slide_3"],"settings":{}},
+    "acs_trust": {"type":"acs-trust-strip","blocks":{"item_1":{"type":"item","settings":{"heading":"$12.99 Flat Rate Shipping","text":"See details"}},"item_2":{"type":"item","settings":{"heading":"High Quality Products and Services","text":"ACS, 3M, Norton, Dynabrade & more"}},"item_3":{"type":"item","settings":{"heading":"We Are The Solutions Experts","text":"Thermal spray & surface preparation"}},"item_4":{"type":"item","settings":{"heading":"Authorized Dynabrade Distributor","text":"Browse Dynabrade"}}},"block_order":["item_1","item_2","item_3","item_4"],"settings":{}},
+    "acs_categories": {"type":"acs-categories","blocks":{},"block_order":[],"settings":{"eyebrow":"Browse the catalog","heading":"Shop by category"}},
+    "acs_promotions": {"type":"acs-promotions","blocks":{},"block_order":[],"settings":{}},
+    "acs_products": {"type":"acs-products","settings":{"limit":6}},
+    "acs_thermal": {"type":"acs-thermal-spray","blocks":{},"block_order":[],"settings":{"eyebrow":"Thermal Spray Equipment & Spares","heading":"Spares and consumables for the guns you already run."}},
+    "acs_about": {"type":"acs-about","settings":{"eyebrow":"About Us","heading":"Customer Built. Customer Focused.","text":"<p>ACS is committed to providing high quality, cost effective solutions that make customer manufacturing and assembly efforts safer and more efficient.</p>"}},
+    "acs_brands": {"type":"acs-brands","blocks":{},"block_order":[],"settings":{"eyebrow":"Brands we carry","heading":"Shop by brand"}},
+    "acs_expert": {"type":"acs-expert-help","settings":{"eyebrow":"We Are The Solutions Experts","heading":"Can't find the part you need? Talk to our team.","phone":"(281) 528-0980","hours":"8am-5pm (CST), Mon.-Fri.","button_label":"Contact Us"}},
+    "acs_memberships": {"type":"acs-memberships","blocks":{},"block_order":[],"settings":{}},
+    "acs_footer": {"type":"acs-footer","settings":{"heading":"Subscribe to our newsletter","text":"New products, sale items and thermal spray updates."}}
   },
   "order": [
-    "acs_homepage"
+    "acs_header",
+    "acs_hero",
+    "acs_trust",
+    "acs_categories",
+    "acs_promotions",
+    "acs_products",
+    "acs_thermal",
+    "acs_about",
+    "acs_brands",
+    "acs_expert",
+    "acs_memberships",
+    "acs_footer"
   ]
 }
